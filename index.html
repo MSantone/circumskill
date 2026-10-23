@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Circumskill — Trim bloated skills to their essentials</title>
+  <meta name="description" content="Circumskill minifies and trims bloated AI agent skills. Cut filler, collapse redundancy, and verify the trimmed skill behaves the same. Fewer tokens, sharper instructions.">
+  <meta property="og:title" content="Circumskill — Trim bloated skills to their essentials">
+  <meta property="og:description" content="Minify and trim AI agent skills. Fewer tokens, sharper instructions, verified behavior.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Circumskill home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="3"/>
+          <path d="M4 16h24" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M22 9l6 7-6 7" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>circumskill</span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#playground">Playground</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="https://github.com/MSantone/circumskill" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href="#get-started">Get started</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span> Skill minifier for AI agents</p>
+          <h1>Skills get bloated.<br><span class="accent-underline">Trim them</span> to the essentials.</h1>
+          <p class="lede">
+            Circumskill reads your agent skills, cuts the filler, collapses redundancy, and verifies
+            the trimmed version behaves the same. Fewer tokens in every context window, sharper
+            instructions for every run.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary btn-lg" href="#playground">Trim a skill now</a>
+            <button class="cmd" data-copy="npx circumskill trim ./skills" type="button" aria-label="Copy install command">
+              <span class="cmd-prompt">$</span>
+              <code>npx circumskill trim ./skills</code>
+              <span class="cmd-copy" aria-hidden="true">copy</span>
+            </button>
+          </div>
+          <ul class="hero-meta">
+            <li>Works with any <code>SKILL.md</code></li>
+            <li>Runs locally</li>
+            <li>Open-source CLI</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-label="Animated example of a skill being trimmed">
+          <div class="window">
+            <div class="window-bar">
+              <span class="window-dots"><i></i><i></i><i></i></span>
+              <span class="window-title">skills/deploy/SKILL.md</span>
+              <span class="window-badge" id="hero-counter"><strong data-from="4812" data-to="1140">4,812</strong> tokens</span>
+            </div>
+            <pre class="trim-demo" id="trim-demo"><code><span class="ln keep"><b>---</b></span>
+<span class="ln keep">name: deploy</span>
+<span class="ln cut" style="--i:1">description: This skill is designed to help you with</span>
+<span class="ln cut" style="--i:2">  deploying. It is very important to use it carefully</span>
+<span class="ln cut" style="--i:3">  and make sure that you always follow the steps below.</span>
+<span class="ln add" style="--i:4">description: Deploy a service to staging or production.</span>
+<span class="ln keep"><b>---</b></span>
+<span class="ln keep"></span>
+<span class="ln cut" style="--i:5">## Overview</span>
+<span class="ln cut" style="--i:6">Please note that deployment is a critical operation.</span>
+<span class="ln cut" style="--i:7">Remember to be careful at all times. Thank you!</span>
+<span class="ln keep"></span>
+<span class="ln keep">## Steps</span>
+<span class="ln cut" style="--i:8">1. In order to begin, you should first run the tests</span>
+<span class="ln add" style="--i:9">1. Run <code>make test</code>; stop on failure.</span>
+<span class="ln keep">2. Tag the release: <code>git tag v$(cat VERSION)</code></span>
+<span class="ln cut" style="--i:10">3. Make sure to double-check that the tests passed</span>
+<span class="ln cut" style="--i:11">   (as mentioned above, this is very important).</span>
+<span class="ln keep">3. Push: <code>git push --tags</code></span>
+<span class="ln cut" style="--i:12">4. Feel free to notify the team if you want to.</span>
+<span class="ln add" style="--i:13">4. Post the tag in #deploys.</span></code></pre>
+            <div class="window-foot">
+              <span class="pill pill-cut">−12 lines</span>
+              <span class="pill pill-add">+3 rewritten</span>
+              <span class="pill pill-ok">evals: 24/24 pass</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" aria-label="Key numbers">
+      <div class="container stats-grid">
+        <div class="stat">
+          <span class="stat-num">68%</span>
+          <span class="stat-label">average token reduction per skill</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">eval parity required before a trim ships</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">1</span>
+          <span class="stat-label">command to run it in CI</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">0</span>
+          <span class="stat-label">skills leave your machine on the free tier</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Why trim</p>
+          <h2>Every skill you load is paid for in context.</h2>
+          <p class="section-sub">Skills grow by accretion. Someone adds a caveat, an example, a "please always remember". Nobody removes anything. Six months later your agent reads 3,000 tokens to learn how to run a linter.</p>
+        </div>
+        <div class="cards-3">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 20V10"/></svg>
+            </div>
+            <h3>Context is a budget</h3>
+            <p>Thirty skills at 3k tokens each is 90k tokens spent before the user types a word. Trimmed skills leave room for the actual task.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <h3>Padding hides the instruction</h3>
+            <p>Hedges, pleasantries and restated warnings dilute the one line that matters. Models follow crisp imperatives better than paragraphs of reassurance.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 18l6-6 4 4 6-8"/><path d="M14 8h6v6"/></svg>
+            </div>
+            <h3>Bloat compounds</h3>
+            <p>Verbose skills trigger less reliably and cost more every single run. The cost is small per call and enormous per month.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-alt" id="how">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>Scan. Trim. Verify. Ship.</h2>
+          <p class="section-sub">Four passes, one command. Nothing ships unless the trimmed skill matches the original on its own evals.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">01</span>
+            <h3>Scan</h3>
+            <p>Parse <code>SKILL.md</code> and every referenced file. Map each instruction, example and link to how often it actually influences a run.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <h3>Trim</h3>
+            <p>Remove dead instructions, collapse duplicates, compress examples to the smallest version that still teaches, and rewrite hedges into imperatives.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <h3>Verify</h3>
+            <p>Run the skill's evals against both versions. The trim is accepted only when it matches or beats the original on every case.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">04</span>
+            <h3>Ship</h3>
+            <p>Open a pull request with a readable diff, a token report and the eval results. You review the cut like any other change.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Features</p>
+          <h2>Everything a careful editor would do, in seconds.</h2>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <h3>Dead-instruction detection</h3>
+            <p>Finds rules that never change an outcome across your eval set and flags them for removal.</p>
+          </article>
+          <article class="feature">
+            <h3>Redundancy collapse</h3>
+            <p>Merges the same warning stated four ways into one line, kept where the model needs it most.</p>
+          </article>
+          <article class="feature">
+            <h3>Example compression</h3>
+            <p>Shrinks worked examples to the shortest form that still demonstrates the pattern.</p>
+          </article>
+          <article class="feature">
+            <h3>Hedge removal</h3>
+            <p>"Please make sure you always try to" becomes a verb. Politeness costs tokens and buys nothing.</p>
+          </article>
+          <article class="feature">
+            <h3>Token budgets</h3>
+            <p>Set a ceiling per skill or per repo. CI fails when a skill grows past it, before the bloat compounds.</p>
+          </article>
+          <article class="feature">
+            <h3>Behavior-preserving verification</h3>
+            <p>Every trim is checked against your evals. No parity, no merge. Regressions never ship silently.</p>
+          </article>
+          <article class="feature">
+            <h3>Diffs you can read</h3>
+            <p>Each cut is annotated with the reason: dead, duplicate, hedge, or compressed. Accept or reject line by line.</p>
+          </article>
+          <article class="feature">
+            <h3>Works where your skills live</h3>
+            <p>Claude Code, Codex, Cursor, or a plain folder of Markdown. If it's a <code>SKILL.md</code>, it trims.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAYGROUND -->
+    <section class="section section-alt" id="playground">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Playground</p>
+          <h2>Paste a skill. Watch it lose weight.</h2>
+          <p class="section-sub">This in-browser demo uses lightweight heuristics: hedge removal, duplicate collapse and whitespace cleanup. The full engine adds semantic analysis and eval-backed verification.</p>
+        </div>
+        <div class="playground">
+          <div class="pane">
+            <div class="pane-head">
+              <span>Original</span>
+              <span class="pane-stat"><strong id="pg-before">0</strong> tokens</span>
+            </div>
+            <textarea id="pg-input" spellcheck="false" aria-label="Original skill text"></textarea>
+          </div>
+          <div class="pane-mid">
+            <button class="btn btn-primary" id="pg-run" type="button">Trim →</button>
+            <button class="btn btn-ghost btn-sm" id="pg-reset" type="button">Reset sample</button>
+          </div>
+          <div class="pane">
+            <div class="pane-head">
+              <span>Trimmed</span>
+              <span class="pane-stat"><strong id="pg-after">0</strong> tokens <em id="pg-saved" class="saved"></em></span>
+            </div>
+            <pre id="pg-output" aria-live="polite" aria-label="Trimmed skill text"></pre>
+          </div>
+        </div>
+        <ul class="pg-report" id="pg-report" aria-label="What was cut"></ul>
+      </div>
+    </section>
+
+    <!-- CLI -->
+    <section class="section" id="get-started">
+      <div class="container cli-grid">
+        <div>
+          <p class="eyebrow">Get started</p>
+          <h2>One command. Your skills, trimmed.</h2>
+          <p class="section-sub">Run it once to see the report, or wire it into CI and let it open pull requests when a skill drifts past budget.</p>
+          <ul class="checks">
+            <li>Install nothing. <code>npx</code> fetches the CLI on demand.</li>
+            <li>Dry-run by default. Nothing is written until you pass <code>--write</code>.</li>
+            <li>Bring your own evals, or let Circumskill scaffold a starter set.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-lg" href="https://github.com/MSantone/circumskill" rel="noopener">Read the docs</a>
+            <a class="btn btn-ghost btn-lg" href="#pricing">See pricing</a>
+          </div>
+        </div>
+        <div class="window window-code">
+          <div class="window-bar">
+            <span class="window-dots"><i></i><i></i><i></i></span>
+            <span class="window-title">terminal</span>
+            <button class="copy-btn" data-copy="npx circumskill trim ./skills --budget 1200" type="button">Copy</button>
+          </div>
+          <pre><code><span class="c-prompt">$</span> npx circumskill trim ./skills --budget 1200
+
+<span class="c-dim">scanning 14 skills…</span>
+
+  deploy        <span class="c-cut">4,812</span> → <span class="c-ok">1,140</span>   −76%   evals 24/24 ✓
+  release-notes <span class="c-cut">2,930</span> → <span class="c-ok">  812</span>   −72%   evals 18/18 ✓
+  lint-fix      <span class="c-cut">1,406</span> → <span class="c-ok">  655</span>   −53%   evals 31/31 ✓
+  db-migrate    <span class="c-cut">3,210</span> → <span class="c-ok">1,188</span>   −63%   evals 12/12 ✓
+  <span class="c-dim">… 10 more</span>
+
+<span class="c-ok">✓</span> 14 skills trimmed, <span class="c-ok">31,772 tokens</span> saved per load
+<span class="c-ok">✓</span> all skills under budget (1,200)
+<span class="c-dim">→ run with --write to apply, or --pr to open a pull request</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section section-alt" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Pricing</p>
+          <h2>Free to trim locally. Pay for the parts that run for you.</h2>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <h3>Free</h3>
+            <p class="price"><span>$0</span></p>
+            <p class="plan-sub">Open-source CLI. Runs on your machine.</p>
+            <ul>
+              <li>Unlimited skills and repos</li>
+              <li>Scan, trim, token report</li>
+              <li>Local eval verification</li>
+              <li>Community support</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="https://github.com/MSantone/circumskill" rel="noopener">Install the CLI</a>
+          </article>
+          <article class="plan plan-featured">
+            <span class="plan-tag">Most popular</span>
+            <h3>Pro</h3>
+            <p class="price"><span>$19</span>/mo</p>
+            <p class="plan-sub">For people who maintain skills for a living.</p>
+            <ul>
+              <li>Everything in Free</li>
+              <li>Hosted verification runs</li>
+              <li>PR bot with annotated diffs</li>
+              <li>Token history and drift alerts</li>
+              <li>Priority support</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="#get-started">Start free trial</a>
+          </article>
+          <article class="plan">
+            <h3>Team</h3>
+            <p class="price"><span>$79</span>/mo</p>
+            <p class="plan-sub">Shared budgets and policy across an org.</p>
+            <ul>
+              <li>Everything in Pro</li>
+              <li>Org-wide token budgets</li>
+              <li>Required-checks policy</li>
+              <li>SSO and audit log</li>
+              <li>Up to 25 seats</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="mailto:hello@circumskill.dev">Talk to us</a>
+          </article>
+        </div>
+        <p class="fineprint">Prices are per workspace, billed monthly. Cancel anytime. The CLI stays free forever.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-head section-head-left">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions, trimmed.</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>Will trimming change how my skill behaves?</summary>
+            <p>Not without you knowing. Every trim is run against the skill's evals. If any case regresses, the trim is rejected and the report shows which cut caused it. You can also accept or reject individual cuts in the diff.</p>
+          </details>
+          <details>
+            <summary>What counts as a "skill"?</summary>
+            <p>Any folder with a <code>SKILL.md</code> (plus optional references, scripts and examples). That covers Claude Code skills, Codex and Cursor instructions, and plain Markdown prompt libraries.</p>
+          </details>
+          <details>
+            <summary>Does my skill content leave my machine?</summary>
+            <p>On the free CLI, no. Scanning, trimming and verification all run locally. Hosted verification on Pro and Team sends skill text to our runners; it's encrypted in transit and deleted after the run.</p>
+          </details>
+          <details>
+            <summary>I don't have evals yet. Can I still use it?</summary>
+            <p>Yes. Run <code>circumskill evals init</code> to scaffold a starter set from your skill's examples and trigger phrases. Trims without evals are marked "unverified" in the report so you can review them by hand.</p>
+          </details>
+          <details>
+            <summary>Can I undo a trim?</summary>
+            <p>Trims are plain diffs. Revert the commit or reject the pull request. Circumskill also keeps the original alongside the trim until you merge.</p>
+          </details>
+          <details>
+            <summary>Why the name?</summary>
+            <p>Because it cuts around the skill and removes only what isn't needed. We considered gentler names. None of them were as memorable.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-final">
+      <div class="container">
+        <h2>Your agents deserve skills that get to the point.</h2>
+        <p>Trim your first skill in under a minute.</p>
+        <div class="cta-row cta-center">
+          <a class="btn btn-primary btn-lg" href="#playground">Try the playground</a>
+          <button class="cmd cmd-dark" data-copy="npx circumskill trim ./skills" type="button" aria-label="Copy install command">
+            <span class="cmd-prompt">$</span>
+            <code>npx circumskill trim ./skills</code>
+            <span class="cmd-copy" aria-hidden="true">copy</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="3"/>
+          <path d="M4 16h24" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M22 9l6 7-6 7" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>circumskill</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/MSantone/circumskill" rel="noopener">GitHub</a>
+      </nav>
+      <p class="copyright">© <span id="year"></span> Circumskill. Fewer tokens, sharper skills.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
