@@ -12,7 +12,7 @@ compressed) and live under `assets/`.
 | Step icon: Ship | done | `assets/icons/ship.png` |
 | Step icon: Scan | done | `assets/icons/scan.png` |
 | Final CTA backdrop | done | `assets/cta-bg.jpg` |
-| Hero background texture | optional, not generated | `assets/hero-bg.png` |
+| Hero background texture | done | `assets/hero-bg.jpg` (dark mode reuses `cta-bg.jpg`) |
 | "Why trim" illustration | done | `assets/why.jpg` |
 
 Icons are cropped to their content with ~16% padding and resized to 320px square.
