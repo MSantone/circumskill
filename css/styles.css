@@ -405,7 +405,6 @@ svg { display: block; }
   margin-bottom: 18px;
 }
 .step-icon img, .step-icon svg { width: 100%; height: 100%; display: block; }
-.step-icon-svg { padding: 10px; }
 .step-num { display: block; font-family: var(--font-mono); font-size: .8rem; color: var(--accent); font-weight: 600; margin-bottom: 14px; }
 .step h3 { margin-bottom: 10px; font-size: 1.35rem; }
 .step p { color: var(--ink-2); font-size: .96rem; }

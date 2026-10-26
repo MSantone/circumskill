@@ -10,14 +10,11 @@ compressed) and live under `assets/`.
 | Step icon: Trim | done | `assets/icons/trim.png` |
 | Step icon: Verify | done | `assets/icons/verify.png` |
 | Step icon: Ship | done | `assets/icons/ship.png` |
-| Step icon: Scan | **missing**, inline SVG stand-in in `index.html` | `assets/icons/scan.png` when generated |
+| Step icon: Scan | done | `assets/icons/scan.png` |
 | Final CTA backdrop | done | `assets/cta-bg.jpg` |
 | Hero background texture | optional, not generated | `assets/hero-bg.png` |
 | "Why trim" illustration | optional, not generated | `assets/why.png` |
 
-To add the Scan icon: generate it with the prompt under section 4, save the
-result as `assets/icons/scan.png`, and replace the `.step-icon-svg` block in
-`index.html` with `<div class="step-icon"><img src="assets/icons/scan.png" alt="" width="72" height="72"></div>`.
 Icons are cropped to their content with ~16% padding and resized to 320px square.
 
 The site ships with no raster images: the hero visual, icons and logo are CSS and
