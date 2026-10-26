@@ -13,7 +13,7 @@ compressed) and live under `assets/`.
 | Step icon: Scan | done | `assets/icons/scan.png` |
 | Final CTA backdrop | done | `assets/cta-bg.jpg` |
 | Hero background texture | optional, not generated | `assets/hero-bg.png` |
-| "Why trim" illustration | optional, not generated | `assets/why.png` |
+| "Why trim" illustration | done | `assets/why.jpg` |
 
 Icons are cropped to their content with ~16% padding and resized to 320px square.
 
