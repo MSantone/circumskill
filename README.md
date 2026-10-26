@@ -10,8 +10,8 @@ Google Fonts.
 index.html          page markup
 css/styles.css      styles (light theme, dark mode via prefers-color-scheme)
 js/main.js          nav toggle, copy buttons, hero counter, playground trimmer
-assets/favicon.svg  favicon
-assets/IMAGE_PROMPTS.md  prompts for optional imagery, with placement notes
+assets/             favicon, logo mark, social card, step icons, CTA backdrop
+assets/IMAGE_PROMPTS.md  image slot status and prompts for the ones still open
 ```
 
 ## Run locally
@@ -41,4 +41,5 @@ an S3 bucket. For GitHub Pages: Settings → Pages → deploy from the branch ro
   (hedge removal, duplicate collapse, whitespace cleanup) so visitors can see the
   idea without a backend. The `RULES` array is the place to add or remove phrases.
 - **Links.** GitHub and docs links point at this repository; the "Talk to us"
-  button uses a placeholder email address.
+  button uses a placeholder email address. The `og:image` URL assumes GitHub
+  Pages at `msantone.github.io/circumskill`; change it if you deploy elsewhere.

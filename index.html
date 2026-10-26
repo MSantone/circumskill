@@ -10,7 +10,12 @@
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+  <meta property="og:image" content="https://msantone.github.io/circumskill/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -177,21 +182,25 @@
         </div>
         <ol class="steps">
           <li class="step">
+            <div class="step-icon step-icon-svg" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="#15140f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18h22M12 42h18"/><path d="M12 30h14" stroke="#ff4d00"/><circle cx="42" cy="32" r="9"/><path d="M48.5 38.5L55 45"/></svg></div>
             <span class="step-num">01</span>
             <h3>Scan</h3>
             <p>Parse <code>SKILL.md</code> and every referenced file. Map each instruction, example and link to how often it actually influences a run.</p>
           </li>
           <li class="step">
+            <div class="step-icon"><img src="assets/icons/trim.png" alt="" width="72" height="72" loading="lazy"></div>
             <span class="step-num">02</span>
             <h3>Trim</h3>
             <p>Remove dead instructions, collapse duplicates, compress examples to the smallest version that still teaches, and rewrite hedges into imperatives.</p>
           </li>
           <li class="step">
+            <div class="step-icon"><img src="assets/icons/verify.png" alt="" width="72" height="72" loading="lazy"></div>
             <span class="step-num">03</span>
             <h3>Verify</h3>
             <p>Run the skill's evals against both versions. The trim is accepted only when it matches or beats the original on every case.</p>
           </li>
           <li class="step">
+            <div class="step-icon"><img src="assets/icons/ship.png" alt="" width="72" height="72" loading="lazy"></div>
             <span class="step-num">04</span>
             <h3>Ship</h3>
             <p>Open a pull request with a readable diff, a token report and the eval results. You review the cut like any other change.</p>

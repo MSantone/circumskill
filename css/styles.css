@@ -187,9 +187,6 @@ svg { display: block; }
 .cmd code { font-size: inherit; }
 .cmd-prompt { color: var(--accent); font-weight: 600; }
 .cmd-copy { font-size: .72rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; margin-left: 4px; }
-.cmd-dark { background: transparent; border-color: rgba(255,255,255,.3); color: #fff; }
-.cmd-dark .cmd-copy { color: rgba(255,255,255,.6); }
-.cmd-dark:hover { border-color: #fff; }
 
 .pill {
   display: inline-flex; align-items: center;
@@ -402,7 +399,14 @@ svg { display: block; }
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 28px 24px 26px;
 }
-.step-num { display: block; font-family: var(--font-mono); font-size: .8rem; color: var(--accent); font-weight: 600; margin-bottom: 36px; }
+.step-icon {
+  width: 72px; height: 72px; border-radius: 16px; overflow: hidden;
+  background: #f6f3ec; border: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+.step-icon img, .step-icon svg { width: 100%; height: 100%; display: block; }
+.step-icon-svg { padding: 10px; }
+.step-num { display: block; font-family: var(--font-mono); font-size: .8rem; color: var(--accent); font-weight: 600; margin-bottom: 14px; }
 .step h3 { margin-bottom: 10px; font-size: 1.35rem; }
 .step p { color: var(--ink-2); font-size: .96rem; }
 
@@ -537,32 +541,19 @@ svg { display: block; }
    Final CTA & footer
    -------------------------------------------------------------------------- */
 .cta-final {
-  background: var(--ink); color: var(--bg);
-  padding: 88px 0; text-align: center;
+  background: #121110 url("../assets/cta-bg.jpg") center top / cover no-repeat;
+  color: #f1ede4;
+  padding: 96px 0; text-align: center;
   position: relative; overflow: hidden;
-}
-.cta-final::before {
-  content: ""; position: absolute; inset: -40% -20% auto;
-  height: 120%;
-  background: radial-gradient(50% 60% at 50% 0%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 70%);
-  pointer-events: none;
 }
 .cta-final .container { position: relative; }
 .cta-final h2 { max-width: 18ch; margin: 0 auto 14px; }
-.cta-final p { color: color-mix(in srgb, var(--bg) 70%, transparent); margin-bottom: 30px; font-size: 1.1rem; }
-.cta-final .btn-primary { background: var(--accent); color: var(--accent-ink); }
-.cta-final .btn-primary:hover { background: var(--bg); color: var(--ink); }
-:root[data-theme="dark"] .cta-final, :root:not([data-theme="light"]) .cta-final { }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .cta-final { background: var(--surface); color: var(--ink); border-top: 1px solid var(--line); }
-  :root:not([data-theme="light"]) .cta-final p { color: var(--ink-2); }
-  :root:not([data-theme="light"]) .cmd-dark { border-color: var(--line-strong); color: var(--ink); }
-  :root:not([data-theme="light"]) .cmd-dark .cmd-copy { color: var(--ink-3); }
-}
-:root[data-theme="dark"] .cta-final { background: var(--surface); color: var(--ink); border-top: 1px solid var(--line); }
-:root[data-theme="dark"] .cta-final p { color: var(--ink-2); }
-:root[data-theme="dark"] .cmd-dark { border-color: var(--line-strong); color: var(--ink); }
-:root[data-theme="dark"] .cmd-dark .cmd-copy { color: var(--ink-3); }
+.cta-final p { color: rgba(241, 237, 228, .72); margin-bottom: 30px; font-size: 1.1rem; }
+.cta-final .btn-primary { background: var(--accent); color: #15140f; }
+.cta-final .btn-primary:hover { background: #f1ede4; color: #15140f; }
+.cmd-dark { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.28); color: #f1ede4; }
+.cmd-dark .cmd-copy { color: rgba(241,237,228,.6); }
+.cmd-dark:hover { border-color: #f1ede4; }
 
 .footer { padding: 36px 0; border-top: 1px solid var(--line); background: var(--bg); }
 .footer-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; }
